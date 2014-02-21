@@ -14,6 +14,8 @@ public class Candidate {
     public int enlightmentPerHour;
     public int maxHourPerDay;
     
+    public char kodeCandidate;
+    
     public int strength;
     public int charm;
     public int brain;
