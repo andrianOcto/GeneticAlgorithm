@@ -11,7 +11,7 @@ package Basic;
 public class Barang {
     
     public String nama;
-    public String kode;
+    public char kodeBarang;
     public int harga;
     public int dailyStock;
     public int jumlah;
