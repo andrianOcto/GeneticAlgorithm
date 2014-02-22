@@ -11,7 +11,7 @@ package Basic;
 public class Barang {
     
    
-    public char kodeBarang;
+    public string kodeBarang;
     public int harga;
     public int dailyRestock;
     public int stock;
