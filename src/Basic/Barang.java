@@ -11,12 +11,12 @@ package Basic;
 public class Barang {
     
    
-    public string kodeBarang;
+    public String kodeBarang;
     public int harga;
     public int dailyRestock;
     public int stock;
 	//CTOR
-    public Barang( char kB, int h, int dS, int j) {
+    public Barang( String kB, int h, int dS, int j) {
 		
 		kodeBarang = kB;
 		harga = h;

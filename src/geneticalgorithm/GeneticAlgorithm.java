@@ -22,14 +22,18 @@ public class GeneticAlgorithm {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Candidate> listcand = new ArrayList<>();
+        /*ArrayList<Candidate> listcand = new ArrayList<>();
         ArrayList<Tempat> listtempat;
         ArrayList<Barang> listbarang = new ArrayList<>();
         ReadData read = new ReadData();
         
         read.readFromData(listcand, listbarang);
         
-        System.out.print(listcand.get(1).kodePreq.get(0));
+        System.out.print(listcand.get(1).kodePreq.get(0));*/
+        
+        ArrayList<Tempat> tempats = new ArrayList<>();
+        ReadData datas = new ReadData();
+        datas.readTempat(tempats);
         
     }
 }

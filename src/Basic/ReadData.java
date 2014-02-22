@@ -101,6 +101,7 @@ public class ReadData {
             for(int i = 0;i<7;i++){
                 for(int j = 0;j<12;j++){
                     //tempat.availability[i][j] = fileIn.
+                    //System.out.println(fileIn.next());
                 }
             }
         }catch(Exception e){
