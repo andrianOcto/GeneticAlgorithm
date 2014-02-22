@@ -14,7 +14,7 @@ public class Candidate {
     public int enlightmentPerHour;
     public int maxHourPerDay;
     public int energyPerDay;
-    public ArrayList<Character> kodePreq;
+    public ArrayList<String> kodePreq;
     
     public int strengthMin;
     public int charmMin;
@@ -22,7 +22,7 @@ public class Candidate {
     public int[][] availability;//ARRAY OF ARRAYLIST YANG MENCATAT JAM DALAM SEMINGGU, ISI ARRAY DENGAN 7
 	
 	//CTOR
-	public Candidate(int eph, int enpd, int mhpd, ArrayList<Character> kode, int strmin, int charmin, int brainmin) {
+	public Candidate(int eph, int enpd, int mhpd, ArrayList<String> kode, int strmin, int charmin, int brainmin) {
 		enlightmentPerHour = eph;
                 energyPerDay = enpd;
 		maxHourPerDay = mhpd;

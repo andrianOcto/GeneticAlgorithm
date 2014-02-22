@@ -28,7 +28,7 @@ public class ReadData {
         while(fileIn.hasNext()) {
             int str, m, c, b, e, maxM, me, n, eph, enph, mph, sc, cc, bc, hrg, stck;
             
-            char kbrg;
+            String kbrg;
             
             Candidate cand;
             Barang brg;
@@ -41,14 +41,18 @@ public class ReadData {
             b = Integer.parseInt(fileIn.next());
             Nanto naruto = new Nanto(str, m, c, b, e, 0, e);
             n = Integer.parseInt(fileIn.next());
+            Character kbc;
+            String skb;
             for (int i = 0; i < n; i++) {
-                ArrayList<Character> kb = new ArrayList<>();
+                ArrayList<String> kb = new ArrayList<>();
                eph = Integer.parseInt(fileIn.next()); 
                enph = Integer.parseInt(fileIn.next());
                mph = Integer.parseInt(fileIn.next());
                kp = fileIn.next();
+               
                for (int j = 0; j < kp.length(); j++) {
-                   kb.add(kp.charAt(j));
+                   kbc = kp.charAt(j);
+                   kb.add(kbc.toString());
                }
                sc = Integer.parseInt(fileIn.next());
                cc = Integer.parseInt(fileIn.next());
@@ -60,7 +64,7 @@ public class ReadData {
             
             n = Integer.parseInt(fileIn.next());
             for (int i = 0; i < n; i++) {
-               kbrg = fileIn.next().charAt(0);
+               kbrg = fileIn.next();
                hrg = Integer.parseInt(fileIn.next());
                stck = Integer.parseInt(fileIn.next());
                brg = new Barang(kbrg, hrg, stck, stck);
@@ -91,21 +95,90 @@ public class ReadData {
         Scanner fileIn;
         
         try{
-            fileIn = new Scanner("tempat.txt");
+            fileIn = new Scanner(new File("tempat.txt"));
 
             ArrayList<Tempat> TTempats = new ArrayList<Tempat>();
 
             //MENGISI MALL
             Tempat tempat = new Tempat("Mall", 10000, 0, 0, 0, 8);
             tempat.kode = "m";
+            String availability = fileIn.nextLine();
             for(int i = 0;i<7;i++){
                 for(int j = 0;j<12;j++){
-                  //  tempat.availability[i][j] = fileIn.
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
                 }
             }
+            tempats.add(tempat);
+            
+            //MENGISI GYMNASIUM
+            tempat = new Tempat("Gymnasium", 0, 2, 0, 0, 12);
+            tempat.kode = "g";
+            availability = fileIn.nextLine();
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
+                }
+            }
+            tempats.add(tempat);
+            
+            //MENGISI CAFE
+            tempat = new Tempat("Cafe", 0, 0, 2, 0, 6);
+            tempat.kode = "c";
+            availability = fileIn.nextLine();
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
+                }
+            }
+            tempats.add(tempat);
+            
+            //MENGISI UNIVERSITY
+            tempat = new Tempat("University", 0, 0, 0, 3, 15);
+            tempat.kode = "u";
+            availability = fileIn.nextLine();
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
+                }
+            }
+            tempats.add(tempat);
+            //tempats = TTempats;
+            fileIn.close();
+            /*for(int i = 0;i<tempats.size();i++){
+                for(int j = 0;j<7;j++){
+                    for(int k = 0;k<12;k++){
+                        System.out.print(tempats.get(i).availability[j][k]);
+                    }
+                }
+                System.out.println();
+            }*/
+            
+            
         }catch(Exception e){
             
         }
         
+    }
+    
+    public void readCandidate(ArrayList<Candidate> candidates){
+        
+        //INISIALISASI
+        Scanner fileIn;
+        
+        try{
+            fileIn = new Scanner(new File("candidate.txt"));
+            for(int k = 0;k<candidates.size();k++){
+                String availability = fileIn.nextLine();
+                for(int i = 0;i<7;i++){
+                    for(int j = 0;j<12;j++){
+                        candidates.get(k).availability[i][j] = availability.charAt(j+i*12) - 48;
+                    }
+                }
+            }
+            fileIn.close();
+        
+        }catch(Exception e){
+            
+        }
     }
 }
