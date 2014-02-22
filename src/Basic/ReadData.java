@@ -91,19 +91,65 @@ public class ReadData {
         Scanner fileIn;
         
         try{
-            fileIn = new Scanner("tempat.txt");
+            fileIn = new Scanner(new File("tempat.txt"));
 
             ArrayList<Tempat> TTempats = new ArrayList<Tempat>();
 
             //MENGISI MALL
             Tempat tempat = new Tempat("Mall", 10000, 0, 0, 0, 8);
             tempat.kode = "m";
+            String availability = fileIn.nextLine();
             for(int i = 0;i<7;i++){
                 for(int j = 0;j<12;j++){
-                    //tempat.availability[i][j] = fileIn.
-                    //System.out.println(fileIn.next());
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
                 }
             }
+            tempats.add(tempat);
+            
+            //MENGISI GYMNASIUM
+            tempat = new Tempat("Gymnasium", 0, 2, 0, 0, 12);
+            tempat.kode = "g";
+            availability = fileIn.nextLine();
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
+                }
+            }
+            tempats.add(tempat);
+            
+            //MENGISI CAFE
+            tempat = new Tempat("Cafe", 0, 0, 2, 0, 6);
+            tempat.kode = "c";
+            availability = fileIn.nextLine();
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
+                }
+            }
+            tempats.add(tempat);
+            
+            //MENGISI UNIVERSITY
+            tempat = new Tempat("University", 0, 0, 0, 3, 15);
+            tempat.kode = "u";
+            availability = fileIn.nextLine();
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = availability.charAt(j+i*12) - 48;
+                }
+            }
+            tempats.add(tempat);
+            //tempats = TTempats;
+            fileIn.close();
+            /*for(int i = 0;i<tempats.size();i++){
+                for(int j = 0;j<7;j++){
+                    for(int k = 0;k<12;k++){
+                        System.out.print(tempats.get(i).availability[j][k]);
+                    }
+                }
+                System.out.println();
+            }*/
+            
+            
         }catch(Exception e){
             
         }
