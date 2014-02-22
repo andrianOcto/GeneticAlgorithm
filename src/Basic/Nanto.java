@@ -42,6 +42,42 @@ public class Nanto {
         energy = maxEnergy;
     }
     
+    public boolean cekBarang(String k) {
+        for (int i = 0; i< inventory.size(); i++) {
+            if (inventory.get(i).kodeBarang.equals(k)) {
+               if (inventory.get(i).stock > 0) 
+                   return true;
+                    
+            }
+                
+        }
+        return false;
+    }
+    
+    public void addBarang(String k) {
+        for (int i = 0; i< inventory.size(); i++) {
+            if (inventory.get(i).kodeBarang.equals(k)) {
+               inventory.get(i).stock++;
+               break;
+                   
+                    
+            }
+                
+        }
+    }
+    
+     public void removeBarang(String k) {
+         for (int i = 0; i< inventory.size(); i++) {
+            if (inventory.get(i).kodeBarang.equals(k)) {
+               inventory.get(i).stock--;
+               break;
+                   
+                    
+            }
+                
+        }
+    }
+    
     
     
 }
