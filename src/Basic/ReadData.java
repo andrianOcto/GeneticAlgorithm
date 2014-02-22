@@ -159,4 +159,26 @@ public class ReadData {
         }
         
     }
+    
+    public void readCandidate(ArrayList<Candidate> candidates){
+        
+        //INISIALISASI
+        Scanner fileIn;
+        
+        try{
+            fileIn = new Scanner(new File("candidate.txt"));
+            for(int k = 0;k<candidates.size();k++){
+                String availability = fileIn.nextLine();
+                for(int i = 0;i<7;i++){
+                    for(int j = 0;j<12;j++){
+                        candidates.get(k).availability[i][j] = availability.charAt(j+i*12) - 48;
+                    }
+                }
+            }
+            fileIn.close();
+        
+        }catch(Exception e){
+            
+        }
+    }
 }

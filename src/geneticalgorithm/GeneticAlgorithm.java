@@ -31,6 +31,19 @@ public class GeneticAlgorithm {
         
         System.out.print(listcand.get(1).kodePreq.get(0));
         
+        ReadData datas = new ReadData();
+        datas.readCandidate(listcand);
+        
+        /*for(int i = 0;i<listcand.size();i++){
+            for(int j = 0;j<7;j++){
+                for(int k = 0;k<12;k++){
+                    System.out.print(listcand.get(i).availability[j][k]);
+                }
+            }
+            System.out.println();*/
+        
+        
+        //TES TEMPATS 
         /*ArrayList<Tempat> tempats = new ArrayList<>();
         ReadData datas = new ReadData();
         datas.readTempat(tempats);
@@ -41,5 +54,10 @@ public class GeneticAlgorithm {
                 }
             }
         }*/        
+        
+        /*//TES CANDIDATES
+        ReadData datas = new ReadData();
+        datas.readCandidate(listcand);
+        */
     }
 }
