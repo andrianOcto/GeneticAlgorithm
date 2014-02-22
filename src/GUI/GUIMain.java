@@ -457,13 +457,13 @@ public class GUIMain extends javax.swing.JFrame {
                Energi_Progress.setValue(Energi_Progress.getValue()-6);
          }
          else { //berarti dia beli barang
-             
+             try{
              int nokandidat = Integer.parseInt(s);
-             if(true){ //Nanto bertemu dengan cewek
+                             //Nanto bertemu dengan cewek
                 //buat loop for sebanyak jumlah cewe
                 for(int i =0;i<VC.size();i++){
                     //check apakah sama
-                    if(Character.getNumericValue(s)== i){
+                    if(nokandidat== i+1){
                         
                         //tambah enlightment sebanyak enlightment dari cewek itu
                         Enlightment_val.setText(Integer.toString(Integer.valueOf(Enlightment_val.getText())+VC.get(i).enlightmentPerHour));
@@ -474,23 +474,20 @@ public class GUIMain extends javax.swing.JFrame {
                         break;
                     }
                 }
-            
-            
-            }
-            else{ //nanto pergi membeli barang
+             
+             }
+             catch(NumberFormatException e){
+                //gak bisa jadi angka berarti beli barang
                 for(int i =0;i<VB.size();i++){
-                       //check apakah sama
-                       if(Character.compare(s, VB.get(i).kodeBarang)==0){
-                           Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())-VB.get(i).harga));
-                           //Ganti gambar dengn gambar toko
-                           DialogName.setText("\n    Nanto Pergi membeli "+s); //s harus nya ganti nama dari barang
-                           break;
-                       }
-                   }
-            
+                    //check apakah sama
+                    if(s.equals(VB.get(i).kodeBarang)){
+                       Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())-VB.get(i).harga));
+                       //Ganti gambar dengn gambar toko
+                       DialogName.setText("\n    Nanto Pergi membeli "+s); //s harus nya ganti nama dari barang
+                       break;
+                     }
+                }
             }
-         
-         
          }
     
     count++; //memastikan i jam telah lewat, asumsi satu hari = 12 jam 10.00 - 22.00
