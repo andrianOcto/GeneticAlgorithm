@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Tempat {
     
     public String nama;
+    public String kode;
     public int moneyAdd;
     public int strengthAdd;
     public int charmAdd;

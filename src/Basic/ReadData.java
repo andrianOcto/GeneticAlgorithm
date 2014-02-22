@@ -85,4 +85,27 @@ public class ReadData {
             Logger.getLogger(GeneticAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void readTempat(ArrayList<Tempat> tempats){
+        //INISIALISASI SCANNER
+        Scanner fileIn;
+        
+        try{
+            fileIn = new Scanner("tempat.txt");
+
+            ArrayList<Tempat> TTempats = new ArrayList<Tempat>();
+
+            //MENGISI MALL
+            Tempat tempat = new Tempat("Mall", 10000, 0, 0, 0, 8);
+            tempat.kode = "m";
+            for(int i = 0;i<7;i++){
+                for(int j = 0;j<12;j++){
+                    tempat.availability[i][j] = fileIn.
+                }
+            }
+        }catch(Exception e){
+            
+        }
+        
+    }
 }
