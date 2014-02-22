@@ -461,11 +461,9 @@ public class GUIMain extends javax.swing.JFrame {
                 //buat loop for sebanyak jumlah cewe
                 for(int i =0;i<VC.size();i++){
                     //check apakah sama
-<<<<<<< HEAD
-                    if(Character.getNumericValue(s)== i){
-=======
+
                     if(nokandidat== i+1){
->>>>>>> origin/Emon
+
                         
                         //tambah enlightment sebanyak enlightment dari cewek itu
                         Enlightment_val.setText(Integer.toString(Integer.valueOf(Enlightment_val.getText())+VC.get(i).enlightmentPerHour));
