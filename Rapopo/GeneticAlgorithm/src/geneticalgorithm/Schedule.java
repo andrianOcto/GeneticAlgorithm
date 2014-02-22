@@ -4,6 +4,8 @@
  */
 package geneticalgorithm;
 
+import Basic.Candidate;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
@@ -26,7 +28,7 @@ public class Schedule {
 	int _mutationProbability;
 
 	// Fitness value of chromosome
-	float _fitness;
+	int _fitness;
 
 	// Flags of class requiroments satisfaction
 	Vector<Boolean> _criteria;
@@ -54,6 +56,20 @@ public class Schedule {
         for(int i=random;i<parrent2.kegiatan.size();i++)
         {
             kegiatan.set(i, parrent2.kegiatan.get(i));
+        }
+    }
+	
+    public void calculateFitness(ArrayList<Candidate> candidates){
+        
+        _fitness = 0;
+        
+        for(int i = 0;i<kegiatan.size();i++){
+            try{
+                int plus = Integer.parseInt(kegiatan.get(i));
+                _fitness += candidates.get(plus-1).enlightmentPerHour;
+            }catch(Exception e){
+                
+            }
         }
     }
 }
