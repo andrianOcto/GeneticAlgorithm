@@ -4,6 +4,7 @@
  */
 package Basic;
 
+import GUI.GUIMain;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +21,16 @@ public class World {
     public int jam;
     public ArrayList<Barang> itemStore;
     public int maxMinggu;
+    public GUIMain GUI;
+    
+    
+    
+    //contructor
+    public World(){
+    GUI = new GUIMain();
+    
+    
+    }
     
     //METHOD
     public void restock(){
@@ -44,4 +55,12 @@ public class World {
             return true;
      return false;
     }
+
+
+        public static void main(String[] args) {
+            World w =new World();
+            w.GUI.runIt();
+            
+    }
+
 }

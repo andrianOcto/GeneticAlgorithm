@@ -100,7 +100,7 @@ public class ReadData {
             tempat.kode = "m";
             for(int i = 0;i<7;i++){
                 for(int j = 0;j<12;j++){
-                    tempat.availability[i][j] = fileIn.
+                  //  tempat.availability[i][j] = fileIn.
                 }
             }
         }catch(Exception e){

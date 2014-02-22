@@ -34,24 +34,24 @@ public class GUIMain extends javax.swing.JFrame {
     /**
      * Creates new form GUIMain
      */
-    public GUIMain() throws LineUnavailableException {
+    public GUIMain() {
         ss = new Vector<String>();
         initComponents();
         
         //inisialisasi Progress Bar
         Energi_Progress.setMaximum(100);
         Energi_Progress.setValue(100);
-        ss.add("G");
-        ss.add("M");
-        ss.add("U");
-        ss.add("G");
-        ss.add("M");
+        ss.add("g");
+        ss.add("m");
+        ss.add("u");
+        ss.add("g");
+        ss.add("c");
         VB= new Vector<Barang>();
         VC= new Vector<Candidate>();
         //test sound
         
         // from a wave File
-         playSong("street-alley-ambience-1.wav");
+         playSong("sound/street-alley-ambience-1.wav");
     }
     
     public GUIMain(Vector<String> CC,int MaxEN,Vector<Barang> BarangJualan,Vector<Candidate> DataKandidat) {
@@ -316,13 +316,12 @@ public class GUIMain extends javax.swing.JFrame {
     private void DialogNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DialogNameMouseClicked
         // TODO add your handling code here:
         //kamus lokal
-        DialogName.setText("Hello !");
-        setimageLabel("test.jpg");
+   
        
         if (ss.isEmpty()){
             //kalo udah selesai , halaman di itemin , udah gitu  kasih tulisan End.
             DialogName.setText("End !");
-            setimageLabel("test.jpg");
+            setimageLabel("img/test.jpg");
         
         }
         else {
@@ -417,7 +416,6 @@ public class GUIMain extends javax.swing.JFrame {
     
     }
     
-    
     public void setPBar(int nilai){
         Energi_Progress.setValue(nilai);
     }
@@ -432,27 +430,27 @@ public class GUIMain extends javax.swing.JFrame {
         
         if(s.equals("m")){  //pergi ke mall
                DialogName.setText("\n   Nanto Pergi ke mall !");
-               setimageLabel("mall.jpg");
+               setimageLabel("img/mall.jpg");
                Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())+1000));
                Energi_Progress.setValue(Energi_Progress.getValue()-8);
         }
         else if(s.equals("g")){//pergi ke GYM
                DialogName.setText("\n   Nanto Pergi ke GYM !"); 
-               setimageLabel("GYM.jpg"); 
+               setimageLabel("img/GYM.jpg"); 
                STR_val.setText(Integer.toString(Integer.valueOf(STR_val.getText())+2));
                Energi_Progress.setValue(Energi_Progress.getValue()-12);
         }
          else if(s.equals("u")){ //pergi ke Universitas
               
              DialogName.setText("\n     Nanto Pergi ke Universitas !"); 
-               setimageLabel("universitas.jpg"); 
+               setimageLabel("img/universitas.jpg"); 
                Brain_val.setText(Integer.toString(Integer.valueOf(Brain_val.getText())+3));
                Energi_Progress.setValue(Energi_Progress.getValue()-15);
          }
          else if(s.equals("c")){ //pergi ke Cafe
               
                DialogName.setText("\n   Nanto Pergi ke Cafe !"); 
-               setimageLabel("cafe.jpg"); 
+               setimageLabel("img/cafe.jpg"); 
                Charm_val.setText(Integer.toString(Integer.valueOf(Charm_val.getText())+2));
                Energi_Progress.setValue(Energi_Progress.getValue()-6);
          }

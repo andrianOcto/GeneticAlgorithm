@@ -21,6 +21,7 @@ public class GeneticAlgorithm {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String[] args) {
         ArrayList<Candidate> listcand = new ArrayList<>();
         ArrayList<Tempat> listtempat;
@@ -32,4 +33,5 @@ public class GeneticAlgorithm {
         System.out.print(listcand.get(1).kodePreq.get(0));
         
     }
+    */
 }
