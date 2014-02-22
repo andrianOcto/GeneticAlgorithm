@@ -1,4 +1,8 @@
+package GUI;
 
+
+import Basic.Barang;
+import Basic.Candidate;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics;
 import java.io.File;
@@ -31,17 +35,17 @@ public class GUIMain extends javax.swing.JFrame {
      * Creates new form GUIMain
      */
     public GUIMain() throws LineUnavailableException {
-        ss = new Vector<Character>();
+        ss = new Vector<String>();
         initComponents();
         
         //inisialisasi Progress Bar
         Energi_Progress.setMaximum(100);
         Energi_Progress.setValue(100);
-        ss.add('G');
-        ss.add('M');
-        ss.add('U');
-        ss.add('G');
-        ss.add('M');
+        ss.add("G");
+        ss.add("M");
+        ss.add("U");
+        ss.add("G");
+        ss.add("M");
         VB= new Vector<Barang>();
         VC= new Vector<Candidate>();
         //test sound
@@ -50,8 +54,8 @@ public class GUIMain extends javax.swing.JFrame {
          playSong("street-alley-ambience-1.wav");
     }
     
-    public GUIMain(Vector<Character> CC,int MaxEN,Vector<Barang> BarangJualan,Vector<Candidate> DataKandidat) {
-        ss = new Vector<Character>(CC);
+    public GUIMain(Vector<String> CC,int MaxEN,Vector<Barang> BarangJualan,Vector<Candidate> DataKandidat) {
+        ss = new Vector<String>(CC);
         VB = BarangJualan;
         VC = DataKandidat;
         initComponents();
@@ -171,23 +175,21 @@ public class GUIMain extends javax.swing.JFrame {
                     .addGroup(Nanto_StatusLayout.createSequentialGroup()
                         .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Nanto_StatusLayout.createSequentialGroup()
-                                .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(Nanto_StatusLayout.createSequentialGroup()
-                                        .addGap(57, 57, 57)
-                                        .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(Brain_val)
-                                            .addComponent(STR_val)))
-                                    .addGroup(Nanto_StatusLayout.createSequentialGroup()
-                                        .addComponent(Charm)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Charm_val)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(Nanto_StatusLayout.createSequentialGroup()
                                 .addComponent(Energi)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(Energi_Progress, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Nanto_StatusLayout.createSequentialGroup()
                                 .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(Nanto_StatusLayout.createSequentialGroup()
+                                            .addGap(57, 57, 57)
+                                            .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(Brain_val)
+                                                .addComponent(STR_val)))
+                                        .addGroup(Nanto_StatusLayout.createSequentialGroup()
+                                            .addComponent(Charm)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Charm_val)))
                                     .addComponent(Date)
                                     .addComponent(Brain)
                                     .addComponent(STR))
@@ -348,44 +350,7 @@ public class GUIMain extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-            */
-            try {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
-                }
-            } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(GUIMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(GUIMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(GUIMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(GUIMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            //</editor-fold>
-             
-             
-            /* Create and display the form */
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    try {
-                        new GUIMain().setVisible(true);
-                    } catch (LineUnavailableException ex) {
-                        Logger.getLogger(GUIMain.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            });
-        
-    }
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG_GUI;
     private javax.swing.JPanel BG_Place;
@@ -413,7 +378,7 @@ public class GUIMain extends javax.swing.JFrame {
 
     //ide
     private  BufferedImage myPicture;
-    char s; //digunakan untuk menampung gene yang di baca saat ini
+    String s; //digunakan untuk menampung gene yang di baca saat ini
     int count; // u/ menghitung apakah sudah satu hari atau belum  count mod 10
     int str;  // STR yang dimiliki oleh nanto
     int brn;  // Brain yang dimiliki Oleh nanto
@@ -422,7 +387,7 @@ public class GUIMain extends javax.swing.JFrame {
     int energy; // energi yang dimiliki oleh nanto
     
     
-    Vector<Character> ss; //ini buat simpen di GUI list GEN nya gimana
+    Vector<String> ss; //ini buat simpen di GUI list GEN nya gimana
     Vector<Barang> VB; // ini berisikan barang2 yang di jual di toko
     Vector<Candidate> VC; // ini berisikan data2 kandidat yang ada 
     Item_bag IB;
@@ -465,26 +430,26 @@ public class GUIMain extends javax.swing.JFrame {
             Energi_Progress.setValue(Energi_Progress.getMaximum());
         }
         
-        if(Character.compare(s, 'M')==0){  //pergi ke mall
+        if(s.equals("m")){  //pergi ke mall
                DialogName.setText("\n   Nanto Pergi ke mall !");
                setimageLabel("mall.jpg");
                Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())+1000));
                Energi_Progress.setValue(Energi_Progress.getValue()-8);
         }
-        else if(Character.compare(s, 'G')==0){//pergi ke GYM
+        else if(s.equals("g")){//pergi ke GYM
                DialogName.setText("\n   Nanto Pergi ke GYM !"); 
                setimageLabel("GYM.jpg"); 
                STR_val.setText(Integer.toString(Integer.valueOf(STR_val.getText())+2));
                Energi_Progress.setValue(Energi_Progress.getValue()-12);
         }
-         else if(Character.compare(s, 'U')==0){ //pergi ke Universitas
+         else if(s.equals("u")){ //pergi ke Universitas
               
              DialogName.setText("\n     Nanto Pergi ke Universitas !"); 
                setimageLabel("universitas.jpg"); 
                Brain_val.setText(Integer.toString(Integer.valueOf(Brain_val.getText())+3));
                Energi_Progress.setValue(Energi_Progress.getValue()-15);
          }
-         else if(Character.compare(s, 'C')==0){ //pergi ke Cafe
+         else if(s.equals("c")){ //pergi ke Cafe
               
                DialogName.setText("\n   Nanto Pergi ke Cafe !"); 
                setimageLabel("cafe.jpg"); 
@@ -492,11 +457,13 @@ public class GUIMain extends javax.swing.JFrame {
                Energi_Progress.setValue(Energi_Progress.getValue()-6);
          }
          else { //berarti dia beli barang
-            if(Character.isDigit(s)){ //Nanto bertemu dengan cewek
+             try{
+             int nokandidat = Integer.parseInt(s);
+                             //Nanto bertemu dengan cewek
                 //buat loop for sebanyak jumlah cewe
                 for(int i =0;i<VC.size();i++){
                     //check apakah sama
-                    if(Character.getNumericValue(s)==VC.get(i).kodeCandidate){
+                    if(nokandidat== i+1){
                         
                         //tambah enlightment sebanyak enlightment dari cewek itu
                         Enlightment_val.setText(Integer.toString(Integer.valueOf(Enlightment_val.getText())+VC.get(i).enlightmentPerHour));
@@ -507,23 +474,20 @@ public class GUIMain extends javax.swing.JFrame {
                         break;
                     }
                 }
-            
-            
-            }
-            else{ //nanto pergi membeli barang
+             
+             }
+             catch(NumberFormatException e){
+                //gak bisa jadi angka berarti beli barang
                 for(int i =0;i<VB.size();i++){
-                       //check apakah sama
-                       if(Character.compare(s, VB.get(i).kodeBarang)==0){
-                           Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())-VB.get(i).harga));
-                           //Ganti gambar dengn gambar toko
-                           DialogName.setText("\n    Nanto Pergi membeli "+s); //s harus nya ganti nama dari barang
-                           break;
-                       }
-                   }
-            
+                    //check apakah sama
+                    if(s.equals(VB.get(i).kodeBarang)){
+                       Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())-VB.get(i).harga));
+                       //Ganti gambar dengn gambar toko
+                       DialogName.setText("\n    Nanto Pergi membeli "+s); //s harus nya ganti nama dari barang
+                       break;
+                     }
+                }
             }
-         
-         
          }
     
     count++; //memastikan i jam telah lewat, asumsi satu hari = 12 jam 10.00 - 22.00
@@ -590,5 +554,9 @@ public class GUIMain extends javax.swing.JFrame {
         
     
     }
+    
+    public void runIt(){
+    this.setVisible(true);
+}
 
 }
