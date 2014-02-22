@@ -66,6 +66,8 @@ public class GUIMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jFrame1 = new javax.swing.JFrame();
         BG_GUI = new javax.swing.JPanel();
         Nanto_Status = new javax.swing.JPanel();
         Date = new javax.swing.JLabel();
@@ -86,6 +88,28 @@ public class GUIMain extends javax.swing.JFrame {
         DialogName = new javax.swing.JTextArea();
         BG_Place = new javax.swing.JPanel();
         imageLabel = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,6 +150,11 @@ public class GUIMain extends javax.swing.JFrame {
         Enlightment_val.setText("0");
 
         Bag.setText("Bag");
+        Bag.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BagMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Nanto_StatusLayout = new javax.swing.GroupLayout(Nanto_Status);
         Nanto_Status.setLayout(Nanto_StatusLayout);
@@ -144,17 +173,14 @@ public class GUIMain extends javax.swing.JFrame {
                     .addGroup(Nanto_StatusLayout.createSequentialGroup()
                         .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Nanto_StatusLayout.createSequentialGroup()
-                                .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Date)
-                                    .addComponent(Brain)
-                                    .addComponent(Charm))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(Nanto_StatusLayout.createSequentialGroup()
                                 .addComponent(Energi)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addComponent(Energi_Progress, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Nanto_StatusLayout.createSequentialGroup()
                                 .addGroup(Nanto_StatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Date)
+                                    .addComponent(Brain)
+                                    .addComponent(Charm)
                                     .addGroup(Nanto_StatusLayout.createSequentialGroup()
                                         .addComponent(Enlightment)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -240,9 +266,9 @@ public class GUIMain extends javax.swing.JFrame {
         BG_GUI.setLayout(BG_GUILayout);
         BG_GUILayout.setHorizontalGroup(
             BG_GUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BG_GUILayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BG_GUILayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BG_GUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BG_GUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(DialogName)
                     .addGroup(BG_GUILayout.createSequentialGroup()
                         .addComponent(BG_Place, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -302,7 +328,15 @@ public class GUIMain extends javax.swing.JFrame {
 
     private void RecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecordActionPerformed
         // TODO add your handling code here:
+        
+        Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())+1000));
     }//GEN-LAST:event_RecordActionPerformed
+
+    private void BagMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BagMouseClicked
+        // TODO add your handling code here:
+         IB = new Item_bag();
+         IB.runIt();
+    }//GEN-LAST:event_BagMouseClicked
 
     /**
      * @param args the command line arguments
@@ -366,6 +400,8 @@ public class GUIMain extends javax.swing.JFrame {
     private javax.swing.JLabel STR;
     private javax.swing.JLabel STR_val;
     private javax.swing.JLabel imageLabel;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JFrame jFrame1;
     // End of variables declaration//GEN-END:variables
 
     //ide
@@ -377,10 +413,12 @@ public class GUIMain extends javax.swing.JFrame {
     int crm;  // Charm yang dimiliki oleh nanto
     int money;  // uang yang dimiliki oleh nanto
     int energy; // energi yang dimiliki oleh nanto
+    
+    
     Vector<Character> ss; //ini buat simpen di GUI list GEN nya gimana
-    //Vector<Integer> ii; //ini buat simpen di GUI list GEN nya gimana
     Vector<Barang> VB; // ini berisikan barang2 yang di jual di toko
     Vector<Candidate> VC; // ini berisikan data2 kandidat yang ada 
+    Item_bag IB;
     // List belum implementasi
     /*
      semua char cewe , List cewe
@@ -421,27 +459,27 @@ public class GUIMain extends javax.swing.JFrame {
         }
         
         if(Character.compare(s, 'M')==0){  //pergi ke mall
-               DialogName.setText("Nanto Pergi ke mall !");
+               DialogName.setText("\n   Nanto Pergi ke mall !");
                setimageLabel("mall.jpg");
                Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())+1000));
                Energi_Progress.setValue(Energi_Progress.getValue()-8);
         }
         else if(Character.compare(s, 'G')==0){//pergi ke GYM
-               DialogName.setText("Nanto Pergi ke GYM !"); 
+               DialogName.setText("\n   Nanto Pergi ke GYM !"); 
                setimageLabel("GYM.jpg"); 
                STR_val.setText(Integer.toString(Integer.valueOf(STR_val.getText())+2));
                Energi_Progress.setValue(Energi_Progress.getValue()-12);
         }
          else if(Character.compare(s, 'U')==0){ //pergi ke Universitas
               
-             DialogName.setText("Nanto Pergi ke Universitas !"); 
+             DialogName.setText("\n     Nanto Pergi ke Universitas !"); 
                setimageLabel("universitas.jpg"); 
                Brain_val.setText(Integer.toString(Integer.valueOf(Brain_val.getText())+3));
                Energi_Progress.setValue(Energi_Progress.getValue()-15);
          }
          else if(Character.compare(s, 'C')==0){ //pergi ke Cafe
               
-               DialogName.setText("Nanto Pergi ke Cafe !"); 
+               DialogName.setText("\n   Nanto Pergi ke Cafe !"); 
                setimageLabel("cafe.jpg"); 
                Charm_val.setText(Integer.toString(Integer.valueOf(Charm_val.getText())+2));
                Energi_Progress.setValue(Energi_Progress.getValue()-6);
@@ -451,14 +489,14 @@ public class GUIMain extends javax.swing.JFrame {
                 //buat loop for sebanyak jumlah cewe
                 for(int i =0;i<VC.size();i++){
                     //check apakah sama
-                    if(Character.getNumericValue(s)==0){
+                    if(Character.getNumericValue(s)==VC.get(i).kodeCandidate){
                         
                         //tambah enlightment sebanyak enlightment dari cewek itu
                         Enlightment_val.setText(Integer.toString(Integer.valueOf(Enlightment_val.getText())+VC.get(i).enlightmentPerHour));
                         //kurangi energi nanto
                         Energi_Progress.setValue(Energi_Progress.getValue()-15); // dikurangi jumlah energi yang dibutuhkan u/ bertemu
                         //Ganti gambar dengn gambar ketemu cewek itu
-                        DialogName.setText("Nanto Pergi Bertemu dengan "+s); //s harus nya ganti nama dari si cewe
+                        DialogName.setText("\n  Nanto Pergi Bertemu dengan "+s); //s harus nya ganti nama dari si cewe
                         break;
                     }
                 }
@@ -468,10 +506,10 @@ public class GUIMain extends javax.swing.JFrame {
             else{ //nanto pergi membeli barang
                 for(int i =0;i<VB.size();i++){
                        //check apakah sama
-                       if(Character.compare(s, VB.get(i).kode.charAt(0))==0){
+                       if(Character.compare(s, VB.get(i).kodeBarang)==0){
                            Money_val.setText(Integer.toString(Integer.valueOf(Money_val.getText())-VB.get(i).harga));
                            //Ganti gambar dengn gambar toko
-                           DialogName.setText("Nanto Pergi membeli "+s); //s harus nya ganti nama dari barang
+                           DialogName.setText("\n    Nanto Pergi membeli "+s); //s harus nya ganti nama dari barang
                            break;
                        }
                    }
