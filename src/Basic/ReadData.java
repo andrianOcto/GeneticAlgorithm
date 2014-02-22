@@ -28,7 +28,7 @@ public class ReadData {
         while(fileIn.hasNext()) {
             int str, m, c, b, e, maxM, me, n, eph, enph, mph, sc, cc, bc, hrg, stck;
             
-            char kbrg;
+            String kbrg;
             
             Candidate cand;
             Barang brg;
@@ -41,14 +41,18 @@ public class ReadData {
             b = Integer.parseInt(fileIn.next());
             Nanto naruto = new Nanto(str, m, c, b, e, 0, e);
             n = Integer.parseInt(fileIn.next());
+            Character kbc;
+            String skb;
             for (int i = 0; i < n; i++) {
-                ArrayList<Character> kb = new ArrayList<>();
+                ArrayList<String> kb = new ArrayList<>();
                eph = Integer.parseInt(fileIn.next()); 
                enph = Integer.parseInt(fileIn.next());
                mph = Integer.parseInt(fileIn.next());
                kp = fileIn.next();
+               
                for (int j = 0; j < kp.length(); j++) {
-                   kb.add(kp.charAt(j));
+                   kbc = kp.charAt(j);
+                   kb.add(kbc.toString());
                }
                sc = Integer.parseInt(fileIn.next());
                cc = Integer.parseInt(fileIn.next());
@@ -60,7 +64,7 @@ public class ReadData {
             
             n = Integer.parseInt(fileIn.next());
             for (int i = 0; i < n; i++) {
-               kbrg = fileIn.next().charAt(0);
+               kbrg = fileIn.next();
                hrg = Integer.parseInt(fileIn.next());
                stck = Integer.parseInt(fileIn.next());
                brg = new Barang(kbrg, hrg, stck, stck);
