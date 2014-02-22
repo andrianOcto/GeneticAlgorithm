@@ -10,10 +10,17 @@ package Basic;
  */
 public class Barang {
     
-    public String nama;
+   
     public char kodeBarang;
     public int harga;
-    public int dailyStock;
-    public int jumlah;
-    
+    public int dailyRestock;
+    public int stock;
+	//CTOR
+    public Barang( char kB, int h, int dS, int j) {
+		
+		kodeBarang = kB;
+		harga = h;
+		dailyRestock = dS;
+		stock = j;
+	}
 }

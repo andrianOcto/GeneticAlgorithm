@@ -19,6 +19,7 @@ public class World {
     public int hari;
     public int jam;
     public ArrayList<Barang> itemStore;
+    public int maxMinggu;
     
     //METHOD
     public void restock(){
@@ -26,10 +27,21 @@ public class World {
     }
     
     public void nextDay(){
-        
+			hari++;
     }
     
     public void nextHour(){
-        
+        if (jam == 21) {
+			jam = 10;
+			nextDay();
+        }
+		else
+			jam++;
+    }
+    
+    public boolean isFinished() {
+        if (hari == (maxMinggu * 7))
+            return true;
+     return false;
     }
 }

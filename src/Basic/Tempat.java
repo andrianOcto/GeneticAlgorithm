@@ -16,9 +16,19 @@ public class Tempat {
     public int moneyAdd;
     public int strengthAdd;
     public int charmAdd;
-    public int braindAdd;
+    public int brainAdd;
     public int energyNeed;
     
-    public ArrayList<Integer>[] availabilty;//ARRAY OF ARRAYLIST YANG MENCATAT JAM DALAM SEMINGGU, ISI ARRAY DENGAN 7
+    public int[][] availability;//ARRAY OF ARRAYLIST YANG MENCATAT JAM DALAM SEMINGGU, ISI ARRAY DENGAN 7
     
+    //CTOR
+    public Tempat(String n, int ma, int sa, int ca,int ba, int en) {
+        nama = n;
+        moneyAdd = ma;
+        strengthAdd = sa;
+        charmAdd = ca;
+        brainAdd = ba;
+        energyNeed = en;
+        availability = new int[7][12];
+    }
 }

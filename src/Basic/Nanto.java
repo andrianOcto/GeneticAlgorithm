@@ -24,9 +24,17 @@ public class Nanto {
     public int enlightment;
     
     //CTOR
-    public Nanto(){
-        
+    public Nanto(int str, int m, int c, int b, int e, int en, int me){
+        strength = str;
+		money = m;
+		charm = c;
+		brain = b;
+		energy = e;
+		enlightment = en;
+                maxEnergy = me;
     }
+    
+    
     
     //METHOD
     public void recovery(){
